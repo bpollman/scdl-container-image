@@ -26,31 +26,12 @@ v2.7.1
 * lightweight
 * no dependency management needed on the host system
 
-## Example commands (under construction)
+## Example commands 
 
-### This is maybe for linux and maybe working
 ```
-docker run -v /tmp/test:/share scdl-container-image -l https://soundcloud.com/user-869449816/taro-101-andauernd-freestyle --path /share
-
-docker run -v /tmp/test:/share scdl-container-image -p -l https://soundcloud.com/3deep5mev2/sets --path /share --download-archive
-
-docker run -v /tmp/test:/share scdl-container-image -p -l https://soundcloud.com/3deep5mev2/sets --path /share --download-archive archiv.txt -c
-
-
-docker run -v /tmp/test:/share scdl-container-image -l https://soundcloud.com/user-869449816/taro-101-andauernd-freestyle --path /share
-
-docker run -v /tmp/test:/share scdl-container-image --path /share -l https://soundcloud.com/user-869449816/taro-101-andauernd-freestyle 
-
-
-docker run -v "/mnt/nfs/Meine Daten/Musik/Playlisten/Soundcloud":/share scdl-container-image -p -l https://soundcloud.com/3deep5mev2/sets --path /share --download-archive archiv.txt -c
-
-docker run -v "X:\Meine Daten\Musik\Playlisten\Soundcloud":/share scdl-container-image -p -l https://soundcloud.com/3deep5mev2/sets --path /share --download-archive archiv.txt -c
+# Download playlist into the current dirctory
+docker run -v $(PWD):/mnt/stuff 3deep5me/scdl-container-imag -cl https://soundcloud.com/3deep5mev2/sets/underground-german-rap --flac --download-archive archiv.txt
 ```
-
-### THIS ONE WINDOWS:
-```
-docker run -v ${PWD}:/share scdl-container-image -p -l https://soundcloud.com/3deep5mev2/sets --path /share --download-archive archiv.txt --flac --playlist-name-format [title] -c
-``` 
 
 ## ToDo (open to contribute)
 
