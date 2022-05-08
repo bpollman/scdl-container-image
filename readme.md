@@ -57,3 +57,4 @@ docker run -v ${PWD}:/share scdl-container-image -p -l https://soundcloud.com/3d
 - [ ] GitHub action to test the image before pushing
 - [ ] Add Kubernetes manifest
 - [ ] Add Docker Compose
+- [ ] Add rootless feature
