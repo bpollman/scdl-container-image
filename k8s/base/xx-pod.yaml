@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sctl
+spec:
+  containers:
+  - name: sctl
+    image: 3deep5me/scdl-container-image
+    args:
+    - -l
+    - https://soundcloud.com/3deep5mev2
+    - -p
+    - --download-archive 
+    - archiv.txt 
+    - --flac
+    - -c
+    volumeMounts:
+      - name: music
+        mountPath: "/mnt/stuff"
+        readOnly: false
+      - name: scdl-config
+        mountPath: "~/.config/scdl/scdl.cfg"
+        readOnly: true
+    imagePullPolicy: Always
+  volumes:
+    - name: music
+      persistentVolumeClaim:
+        claimName: pvc-smb
+    - name: scdl-config
+      secret: 
+        secretName: scdl.config

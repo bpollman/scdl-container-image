@@ -1,0 +1,35 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: download-all-playlists
+spec:
+  schedule: "0 0 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: sctl
+            image: 3deep5me/scdl-container-image
+            args:
+            - -l
+            - https://soundcloud.com/3deep5mev2
+            - -p
+            - --download-archive 
+            - archiv.txt 
+            - --flac
+            - -c
+          volumeMounts:
+            - name: smb
+              mountPath: "/mnt/stuff"
+              readOnly: false
+            - name: scdl.config
+              mountPath: "~/.config/scdl/scdl.cfg"
+          restartPolicy: Never
+      volumes:
+        - name: smb
+          persistentVolumeClaim:
+            claimName: pvc-smb
+        - name: scdl.config
+          secret: 
+            secretName: scdl.config
