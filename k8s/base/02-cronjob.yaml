@@ -19,17 +19,17 @@ spec:
             - archiv.txt 
             - --flac
             - -c
-          volumeMounts:
-            - name: smb
-              mountPath: "/mnt/stuff"
-              readOnly: false
-            - name: scdl.config
-              mountPath: "~/.config/scdl/scdl.cfg"
+            volumeMounts:
+              - name: smb
+                mountPath: "/mnt/stuff"
+                readOnly: false
+              - name: scdl-config
+                mountPath: "~/.config/scdl/scdl.cfg"
           restartPolicy: Never
-      volumes:
-        - name: smb
-          persistentVolumeClaim:
-            claimName: pvc-smb
-        - name: scdl.config
-          secret: 
-            secretName: scdl.config
+          volumes:
+            - name: smb
+              persistentVolumeClaim:
+                claimName: pvc-smb
+            - name: scdl-config
+              secret: 
+                secretName: scdl.config
