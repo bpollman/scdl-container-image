@@ -1,0 +1,25 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hello
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: sctl
+            image: 3deep5me/scdl-container-image
+            command:
+            - /bin/sh
+            - -c
+            - date; echo Hello from the Kubernetes cluster
+          volumeMounts:
+            - name: smb
+              mountPath: "/mnt/smb"
+              readOnly: false
+      volumes:
+        - name: smb
+          persistentVolumeClaim:
+            claimName: pvc-smb
