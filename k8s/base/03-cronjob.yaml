@@ -17,7 +17,7 @@ spec:
             - -p
             - --download-archive 
             - archiv.txt 
-            - --flac
+            - --no-original
             - -c
             volumeMounts:
               - name: smb

@@ -3,6 +3,7 @@ apiVersion: v1
 metadata:
   name: pvc-smb
 spec:
+  storageClassName: smb
   accessModes:
     - ReadWriteMany
   resources:

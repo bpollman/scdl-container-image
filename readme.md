@@ -22,7 +22,6 @@ v2.7.1
 ```
 
 ## Features
-* new image will be automaticailly build and pushed every day
 * lightweight
 * no dependency management needed on the host system
 
@@ -36,6 +35,6 @@ docker run -v $(PWD):/mnt/stuff 3deep5me/scdl-container-imag -cl https://soundcl
 ## ToDo (open to contribute)
 
 - [ ] GitHub action to test the image before pushing
-- [ ] Add Kubernetes manifest
+- [x] Add Kubernetes manifest
 - [ ] Add Docker Compose
 - [ ] Add rootless feature

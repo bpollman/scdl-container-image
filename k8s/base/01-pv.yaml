@@ -17,7 +17,7 @@ spec:
     readOnly: false
     volumeHandle: unique-volumeid1  # make sure it's a unique id in the cluster
     volumeAttributes:
-      source: "//192.168.2.28/g/Meine Daten/Musik/Playlisten/Soundcloud"
+      source: "//192.168.2.27/g/Meine Daten/Musik/Playlisten/Soundcloud"
     nodeStageSecretRef:
       name: smbcreds
       namespace: csi-smb-system

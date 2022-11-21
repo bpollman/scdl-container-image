@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: sctl
+  generateName: sctl
 spec:
   containers:
   - name: sctl
@@ -12,7 +12,7 @@ spec:
     - -p
     - --download-archive 
     - archiv.txt 
-    - --flac
+    - --no-original
     - -c
     volumeMounts:
       - name: music

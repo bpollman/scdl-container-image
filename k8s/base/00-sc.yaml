@@ -1,0 +1,20 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "false"
+  name: smb
+mountOptions:
+- dir_mode=0777
+- file_mode=0777
+- uid=1001
+- gid=1001
+parameters:
+  csi.storage.k8s.io/node-stage-secret-name: smbcreds
+  csi.storage.k8s.io/node-stage-secret-namespace: csi-smb-system
+  csi.storage.k8s.io/provisioner-secret-name: smbcreds
+  csi.storage.k8s.io/provisioner-secret-namespace: csi-smb-system
+  source: //192.168.2.27/g/k8s
+provisioner: smb.csi.k8s.io
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
